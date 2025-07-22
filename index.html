@@ -16,17 +16,27 @@
   </head>
 
   <body>
+    <!-- RTL Toggle Button -->
+    <button id="toggleRTL" class="rtl-btn">Toggle RTL</button>
     <div class="page-wrapper">
-      <!------- Header / Branding ------->
+      <!-- Header / Branding -->
+      <!-- Page Header -->
       <header class="site-header">
         <img src="img/loreal-logo.png" alt="L'Oréal Logo" class="logo" />
-        <h1 class="site-title">Smart Routine &amp; Product Advisor</h1>
+        <h1 class="site-title" id="subtitle">
+          Smart Routine and Product Advisor
+        </h1>
       </header>
 
-      <!-- Category Filter -->
+      <!-- Search Bar (add here) -->
+      <input type="text" id="searchInput" placeholder="Search products..." />
+
+      <!-- Category Filter (should be here) -->
       <div class="search-section">
         <select id="categoryFilter">
-          <option value="" disabled selected>Choose a Category</option>
+          <option id="chooseCategoryOption" value="" disabled selected>
+            Choose a Category
+          </option>
           <option value="cleanser">Cleansers</option>
           <option value="moisturizer">Moisturizers & Treatments</option>
           <option value="haircare">Haircare</option>
@@ -39,54 +49,60 @@
         </select>
       </div>
 
-      <!-- Products Grid -->
+      <!-- Products Grid (move this here, right after the filter) -->
       <div id="productsContainer" class="products-grid"></div>
 
-      <!-- Selected Products -->
+      <!-- Selected Products (now below the products grid) -->
       <div class="selected-products">
-        <h2>Selected Products</h2>
+        <h2 id="selectedProductsHeading">Selected Products</h2>
         <div id="selectedProductsList"></div>
         <button id="generateRoutine" class="generate-btn">
-          <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Routine
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span id="generateRoutineLabel">Generate Routine</span>
         </button>
       </div>
 
-      <!------- Chat Area ------->
+      <!-- Chat Area -->
       <section class="chatbox">
-        <h2>Let's Build Your Routine</h2>
+        <h2 id="chatHeading">Let's Build Your Routine</h2>
         <div id="chatWindow" class="chat-window"></div>
-
         <form id="chatForm" class="chat-form">
-          <label for="userInput" class="visually-hidden">Message</label>
-          <input
-            id="userInput"
-            name="userInput"
-            type="text"
-            placeholder="Ask me about products or routines…"
-            autocomplete="off"
-            required
-          />
-          <button type="submit" id="sendBtn">
-            <i class="fa-solid fa-paper-plane"></i>
-            <span class="visually-hidden">Send</span>
+          <input type="text" id="userInput" />
+          <button type="submit" id="sendBtn" aria-label="Send">
+            <i class="fa-solid fa-paper-plane" style="color: #fff"></i>
           </button>
         </form>
       </section>
 
-      <!------- Footer Links ------->
+      <!-- Footer Links -->
       <footer class="site-footer">
         <p>&copy; 2025 L'Oréal. All rights reserved.</p>
         <nav>
-          <!-- These URLs are placeholders -->
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Use</a>
           <a href="#">Contact</a>
         </nav>
       </footer>
+
+      <!-- Product Modal -->
+      <div id="productModal" class="modal hidden">
+        <div class="modal-content">
+          <span class="close-button" id="closeModalBtn">&times;</span>
+          <img id="modalImage" alt="" />
+          <h2 id="modalTitle"></h2>
+          <p id="modalDescription"></p>
+        </div>
+      </div>
     </div>
 
     <!-- secrets.js can be removed when using Cloudflare Workers for API requests -->
     <script src="secrets.js"></script>
     <script src="script.js"></script>
+    <script>
+      // Function to show the modal
+      function showModal(product) {
+        // ... code that sets modal.innerHTML ...
+      }
+    </script>
   </body>
 </html>

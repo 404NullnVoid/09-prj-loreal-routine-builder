@@ -55,7 +55,7 @@ body {
 
 .search-section select:focus {
   outline: none;
-  border-color: #666;
+  border-color: var(--primary-color);
 }
 
 /* chat section */
@@ -133,6 +133,42 @@ body {
 .chat-form button:focus {
   outline: 2px solid #000;
   outline-offset: 2px;
+}
+
+/* Hide elements with the 'hidden' class */
+.hidden {
+  display: none;
+}
+
+/* Style for the Details button */
+.toggle-description {
+  margin-top: 10px;
+  background-color: #e3a535;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Hover effect for the Details button */
+.toggle-description:hover {
+  background-color: #ff003b;
+}
+
+/* Details button style */
+.details-btn {
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: background 0.2s;
+}
+.details-btn:hover {
+  background: var(--primary-color);
 }
 
 /* visually hidden */
@@ -252,4 +288,173 @@ body {
 
 .generate-btn i {
   margin-right: 8px;
+}
+
+/* Style for selected product tags */
+.selected-tag {
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 16px;
+  font-size: 14px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.selected-tag .remove-tag {
+  display: none;
+  position: absolute;
+  top: 2px;
+  right: 6px;
+  color: #fff;
+  background: #ff003b;
+  border: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 14px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+
+.selected-tag:hover .remove-tag {
+  display: flex;
+}
+
+/* Make the product search bar bigger and styled */
+#searchInput {
+  width: 100%;
+  padding: 18px;
+  font-size: 22px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  margin: 30px 0 10px 0;
+  box-sizing: border-box;
+  font-weight: 500;
+}
+
+/* Brand Colors */
+:root {
+  --primary-color: #ff003b;
+  --accent-color: #e3a535;
+}
+
+/* Replace black with L'Oréal brand colors */
+.generate-btn,
+.chat-form button {
+  background-color: var(--primary-color);
+}
+.generate-btn:hover,
+.chat-form button:hover {
+  background-color: var(--accent-color);
+}
+
+/* RTL toggle button style */
+.rtl-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* RTL/LTR direction and text alignment for the whole page */
+body.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+body:not(.rtl) {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Align content to the right in RTL mode */
+body.rtl .product-card,
+body.rtl .chat-form,
+body.rtl .selected-products {
+  text-align: right;
+}
+
+/* Modal styles */
+/* Modal overlay */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+/* Modal content box */
+.modal-content {
+  background: #fff;
+  padding: 24px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  text-align: left;
+  position: relative;
+}
+
+/* RTL support for modal */
+body.rtl .modal-content {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Modal image */
+.modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+/* Modal title */
+.modal-content h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Modal description */
+.modal-content p {
+  margin-bottom: 15px;
+}
+
+/* Add to Routine button in modal */
+#modalAddBtn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Close button for modal */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
 }
